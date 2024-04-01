@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en" data-layout="vertical" data-sidebar="dark" data-sidebar-size="lg" data-preloader="disable" data-theme="default" data-topbar="light" data-bs-theme="light">
+
+{% load static %}
+<head>
+
+    <meta charset="utf-8">
+    <title>Real Estate | Steex - Admin & Dashboard Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Minimal Admin & Dashboard Template" name="description">
+    <meta content="Themesbrand" name="author">
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico'%}">
+
+    <!-- Fonts css load -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link id="fontsLink" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+
+    <!-- dropzone css -->
+    <link href="{% static 'libs/dropzone/dropzone.css'%}" rel="stylesheet" type="text/css">
+
+    <!-- Layout config Js -->
+    <script src="{% static 'js/layout.js'%}"></script>
+    <!-- Bootstrap Css -->
+    <link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet" type="text/css">
+    <!-- Icons Css -->
+    <link href="{% static 'css/icons.min.css'%}" rel="stylesheet" type="text/css">
+    <!-- App Css-->
+    <link href="{% static 'css/app.min.css'%}" rel="stylesheet" type="text/css">
+    <!-- custom Css-->
+    <link href="{% static 'css/custom.min.css'%}" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+   {%include 'base.html'%}
+
+
+   
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                <h4 class="mb-sm-0">Real Estate</h4>
+
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboards</a></li>
+                                        <li class="breadcrumb-item active">Real Estate</li>
+                                    </ol>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+
+                    <div class="row">
+                        <div class="col-xxl-3 col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <div class="flex-grow-1">
+                                            <div class="d-flex flex-column h-100">
+                                                <p class="fs-md text-muted mb-4">Properties for sale</p>
+                                                <h3 class="mb-0 mt-auto"><span class="counter-value" data-target="3652">0</span> <small class="text-success fs-xs mb-0 ms-1"><i class="bi bi-arrow-up me-1"></i> 06.19%</small></h3>
+                                            </div>
+                                        </div>
+                                        <div class="flex-shrink-0">
+                                            <div id="property_sale" data-colors='["--tb-primary"]' dir="ltr"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!--end col-->
+                        <div class="col-xxl-3 col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <div class="flex-grow-1">
+                                            <div class="d-flex flex-column h-100">
+                                                <p class="fs-md text-muted mb-4">Properties for rent</p>
+                                                <h3 class="mb-0 mt-auto"><span class="counter-value" data-target="1524">0</span> <small class="text-success fs-xs mb-0 ms-1"><i class="bi bi-arrow-up me-1"></i> 02.33%</small></h3>
+                                            </div>
+                                        </div>
+                                        <div class="flex-shrink-0">
+                                            <div id="property_rent" data-colors='["--tb-warning"]' dir="ltr"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!--end col-->
+                        <div class="col-xxl-3 col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <div class="flex-grow-1">
+                                            <div class="d-flex flex-column h-100">
+                                                <p class="fs-md text-muted mb-4">Visitors</p>
+                                                <h3 class="mb-0 mt-auto"><span class="counter-value" data-target="149.36">0</span>k <small class="text-success fs-xs mb-0 ms-1"><i class="bi bi-arrow-up me-1"></i> 12.33%</small></h3>
+                                            </div>
+                                        </div>
+                                        <div class="flex-shrink-0">
+                                            <div id="visitors_chart" data-colors='["--tb-secondary"]' dir="ltr"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!--end col-->
+                        <div class="col-xxl-3 col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <div class="flex-grow-1">
+                                            <div class="d-flex flex-column h-100">
+                                                <p class="fs-md text-muted mb-4">Residency Property</p>
+                                                <h3 class="mb-0 mt-auto"><span class="counter-value" data-target="2376">0</span> <small class="text-danger fs-xs mb-0 ms-1"><i class="bi bi-arrow-down me-1"></i> 09.57%</small></h3>
+                                            </div>
+                                        </div>
+                                        <div class="flex-shrink-0">
+                                            <div id="residency_property" data-colors='["--tb-success"]' dir="ltr"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!--end col-->
+                    </div><!--end row-->
+
+                    <div class="row">
+                        <div class="col-xxl-4 order-last order-xxl-first">
+                            <div class="card">
+                                <div class="card-header d-flex">
+                                    <h4 class="card-title mb-0 flex-grow-1">Properties Type</h4>
+                                    <div class="dropdown card-header-dropdown float-end">
+                                        <a class="text-reset dropdown-btn" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="bi bi-three-dots-vertical"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-end">
+                                            <a class="dropdown-item" href="#">Today</a>
+                                            <a class="dropdown-item" href="#">Last Week</a>
+                                            <a class="dropdown-item" href="#">Last Month</a>
+                                            <a class="dropdown-item" href="#">Current Year</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div id="property_type" data-colors='["--tb-primary", "--tb-secondary", "--tb-light","--tb-danger", "--tb-success"]' class="e-charts shadow-none" style="height: 336px;"></div>
+                                </div>
+                            </div>
+                        </div><!--end col-->
+                        <div class="col-xxl-8">
+                            <div class="card">
+                                <div class="card-header d-flex align-items-center">
+                                    <h5 class="card-title flex-grow-1 mb-0">Revenue Overview</h5>
+                                    <div class="flex-shrink-0">
+                                        <input type="text" class="form-control form-control-sm" id="exampleInputPassword1" data-provider="flatpickr" data-range-date="true" data-date-format="d M, Y" data-default-date="01 Feb 2023 to 28 Feb 2023">
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-3">
+                                            <div class="nav flex-column nav-light nav-pills gap-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                                <a class="nav-link d-flex p-2 gap-3 active" id="revenue-tab" data-bs-toggle="pill" href="#revenue" role="tab" aria-controls="revenue" aria-selected="true">
+                                                    <div class="avatar-sm flex-shrink-0">
+                                                        <div class="avatar-title rounded bg-warning-subtle text-warning fs-2xl">
+                                                            <i class="bi bi-coin"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <h5 class="text-reset">$<span class="counter-value" data-target="2478">0</span>M</h5>
+                                                        <p class="mb-0">Total Revenue</p>
+                                                    </div>
+                                                </a>
+                                                <a class="nav-link d-flex p-2 gap-3" id="income-tab" data-bs-toggle="pill" href="#income" role="tab" aria-controls="income" aria-selected="false">
+                                                    <div class="avatar-sm flex-shrink-0">
+                                                        <div class="avatar-title rounded bg-success-subtle text-success fs-2xl">
+                                                            <i class="bi bi-coin"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <h5 class="text-reset">$<span class="counter-value" data-target="14587.37">0</span></h5>
+                                                        <p class="mb-0">Total Income</p>
+                                                    </div>
+                                                </a>
+                                                <a class="nav-link d-flex p-2 gap-3" id="property-sale-tab" data-bs-toggle="pill" href="#property-sale" role="tab" aria-controls="property-sale" aria-selected="false">
+                                                    <div class="avatar-sm flex-shrink-0">
+                                                        <div class="avatar-title rounded bg-danger-subtle text-danger fs-2xl">
+                                                            <i class="bi bi-coin"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <h5 class="text-reset"><span class="counter-value" data-target="2365">0</span></h5>
+                                                        <p class="mb-0">Property Sell</p>
+                                                    </div>
+                                                </a>
+                                                <a class="nav-link d-flex p-2 gap-3" id="_-tab" data-bs-toggle="pill" href="#propetry-rent" role="tab" aria-controls="propetry-rent" aria-selected="false">
+                                                    <div class="avatar-sm flex-shrink-0">
+                                                        <div class="avatar-title rounded bg-primary-subtle text-primary fs-2xl">
+                                                            <i class="bi bi-coin"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <h5 class="text-reset"><span class="counter-value" data-target="3456">0</span></h5>
+                                                        <p class="mb-0">Property Rent</p>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div><!--end col-->
+                                        <div class="col-lg-9">
+                                            <div class="tab-content text-muted">
+                                                <div class="tab-pane active" id="revenue" role="tabpanel">
+                                                    <div id="total_revenue" data-colors='["--tb-primary"]' class="apex-charts effect-chart" dir="ltr"></div>
+                                                </div><!--end tab-->
+                                                <div class="tab-pane" id="income" role="tabpanel">
+                                                    <div id="total_income" data-colors='["--tb-success"]' class="apex-charts" dir="ltr"></div>
+                                                </div>
+                                                <div class="tab-pane" id="property-sale" role="tabpanel">
+                                                    <div id="property_sale_chart" data-colors='["--tb-danger"]' class="apex-charts" dir="ltr"></div>
+                                                </div>
+                                                <div class="tab-pane" id="propetry-rent" role="tabpanel">
+                                                    <div id="propetry_rent" data-colors='["--tb-info"]' class="apex-charts" dir="ltr"></div>
+                                                </div>
+                                            </div>
+                                        </div><!--end col-->
+                                    </div><!--end row-->
+                                </div>
+                            </div>
+                        </div><!--end col-->
+                    </div><!--end row-->
+
+                    
+
+                </div>
+                <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+
+            {% include "footer.html" %}
+        </div>
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+
+
+    <!--start back-to-top-->
+    <button class="btn btn-dark btn-icon" id="back-to-top">
+        <i class="bi bi-caret-up fs-3xl"></i>
+    </button>
+    <!--end back-to-top-->
+
+    <!--preloader-->
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner-border text-primary avatar-sm" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+
+    
+    
+
+    <!-- JAVASCRIPT -->
+    <script src="{% static 'libs/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+    <script src="{% static 'libs/simplebar/simplebar.min.js'%}"></script>
+    <script src="{% static 'js/plugins.js'%}"></script>
+
+    <script src="{% static 'libs/list.js/list.min.js'%}"></script>
+
+    <!-- echarts js -->
+    <script src="{% static 'libs/echarts/echarts.min.js'%}"></script>
+
+    <!-- apexcharts -->
+    <script src="{% static 'libs/apexcharts/apexcharts.min.js'%}"></script>
+
+    <script src="{% static 'js/pages/dashboard-real-estate.init.js'%}"></script>
+
+    <!-- App js -->
+    <script src="{% static 'js/app.js'%}"></script>
+</body>
+
+
+</html>
