@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, Group
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
-from . models import Company
+from . models import Company, Department
 from django.contrib import messages
 from . decorators import group_required
 
@@ -69,8 +69,16 @@ def addemployee(request, company_name):
 def department(request, company_name):
     if request.user.is_authenticated:
         company = Company.objects.get(user=request.user)
-        context = {"company": company}
-        return render(request, 'department.html', context)
+        if request.method == "POST":
+            #cno = request.POST['cno']
+            department_name = request.POST['department']
+            department = Department.objects.create(cno=company, department=department_name)
+            return redirect(f'/{company.business}/department/')
+        else:
+            department = Department.objects.filter(cno=company)
+            context = {"company": company, "department":department}
+            return render(request, 'department.html', context)
     else:
         return redirect('companylogin')
+
     

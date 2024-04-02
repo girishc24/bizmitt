@@ -20,3 +20,7 @@ class Company(models.Model):
         super().save(*args, **kwargs)
         self.user.created_at = self.created_at
         self.user.save()"""
+    
+class Department(models.Model):
+    cno = models.ForeignKey(Company, on_delete=models.CASCADE, related_name="company")
+    department = models.CharField(max_length=200, unique=True, null = False)
