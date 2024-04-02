@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, Group
 from django.http import HttpResponse
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from . models import Company, Department
 from django.contrib import messages
 from . decorators import group_required
@@ -80,5 +80,10 @@ def department(request, company_name):
             return render(request, 'department.html', context)
     else:
         return redirect('companylogin')
+
+@group_required('COMPANY')   
+def logout_view(request):
+    logout(request)
+    return redirect('companylogin')
 
     
