@@ -30,7 +30,9 @@ def companylogin(request):
             company_group = Group.objects.get(name='COMPANY')
             if company_group in user.groups.all():
                 login(request, user)
-                return redirect('companydashboard')
+                company = Company.objects.get(user=user)
+                company_name = company.business
+                return redirect('companydashboard', company_name=company_name)
             else:
                 messages.error(request, "You are not authorized to access this page.")
                 return redirect('companylogin')
@@ -41,11 +43,34 @@ def companylogin(request):
         return render(request, 'signin.html')
     
 @group_required('COMPANY')
-def companydashboard(request):
+def companydashboard(request, company_name):
+    if request.user.is_authenticated:
+        try:
+            company = Company.objects.get(user=request.user) 
+            context = {"company": company}
+            return render(request, 'index.html', context)
+        except Company.DoesNotExist:
+            messages.error(request, "Company not found for the logged-in user.")
+            return redirect('companylogin')
+    else:
+        messages.error(request, "Need to login.")
+        return redirect('companylogin')
+    
+@group_required('COMPANY')
+def addemployee(request, company_name):
     if request.user.is_authenticated:
         company = Company.objects.get(user=request.user)
         context = {"company": company}
-        return render(request, 'index.html', context)
+        return render(request, 'addemployee.html', context)
     else:
-        messages.error(request, "Need to Login")
         return redirect('companylogin')
+    
+@group_required('COMPANY')   
+def department(request, company_name):
+    if request.user.is_authenticated:
+        company = Company.objects.get(user=request.user)
+        context = {"company": company}
+        return render(request, 'department.html', context)
+    else:
+        return redirect('companylogin')
+    

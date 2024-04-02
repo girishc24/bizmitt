@@ -1,7 +1,7 @@
  {% load static %}
   <div id="layout-wrapper">
 
-        <!-- ========== App Menu ========== -->
+        
 <div class="app-menu navbar-menu">
     <!-- LOGO -->
     <div class="navbar-brand-box">
@@ -35,25 +35,27 @@
 
                 <li class="menu-title"><span data-key="t-menu">Menu</span></li>
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link menu-link"> <i class="ph-calendar"></i> <span data-key="t-calendar">Dashboard</span> </a>
+                    <a href="{% url 'companydashboard' company_name=company.business %}" class="nav-link menu-link"> <i class="ph-calendar"></i> <span data-key="t-calendar">Dashboard</span> </a>
                 </li>
 
-                <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-apps">Authentication</span></li>
+                <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-apps">Members</span></li>
 
                 <li class="nav-item">
-                    <a href="signin.html" class="nav-link menu-link"> <i class="ph-calendar"></i> <span data-key="t-calendar">Login</span> </a>
+                    <a href="signin.html" class="nav-link menu-link"> <i class="ph-calendar"></i> <span data-key="t-calendar">Employee</span> </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="signup.html" class="nav-link menu-link"> <i class="ph-chats"></i> <span data-key="t-chat">signup</span> </a>
+                    <a href="signup.html" class="nav-link menu-link"> <i class="ph-chats"></i> <span data-key="t-chat">Reports</span> </a>
                 </li>
 
-                <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-apps">Reimbursement</span></li>
+                <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-apps">Analytics</span></li>
                 
                 <li class="nav-item">
-                    <a href="reimbursement.html" class="nav-link menu-link"> <i class="ph-envelope"></i> <span data-key="t-email">Apply New</span> </a>
+                    <a href="reimbursement.html" class="nav-link menu-link"> <i class="ph-envelope"></i> <span data-key="t-email">settings </span> </a>
                 </li>
-
+                <li class="nav-item">
+                    <a href="reimbursement.html" class="nav-link menu-link"> <i class="ph-envelope"></i> <span data-key="t-email">Departments </span> </a>
+                </li>
                 
 
                 <li class="nav-item">
