@@ -80,6 +80,15 @@ def department(request, company_name):
             return render(request, 'department.html', context)
     else:
         return redirect('companylogin')
+    
+def edidepartment(request, pk, company_name):
+    if request.user.is_authenticated:
+        company = Company.objects.get(user=request.user)
+        if request.method == "POST":
+             department_name = request.POST['department']
+             department = Department.objects.filter(id=pk).update(department=department_name)
+             return redirect(f'/{company.business}/department/')
+
 
 @group_required('COMPANY')   
 def logout_view(request):
