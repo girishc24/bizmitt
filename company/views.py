@@ -65,6 +65,10 @@ def addemployee(request, company_name):
     else:
         return redirect('companylogin')
     
+@group_required('COMPANY')
+def employee(request, company_name):
+    pass
+    
 @group_required('COMPANY')   
 def department(request, company_name):
     if request.user.is_authenticated:
