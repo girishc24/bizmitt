@@ -61,48 +61,83 @@
                                     <div class="card-header">
                                         <h4 class="card-title mb-0">Input Example</h4>
                                     </div><!-- end card header -->
+                                    <form metod="POST" action="{% url 'addemployee' company_name=company.business %}">
+                                    {% csrf_token %}
                                     <div class="card-body">
                                         <div class="row gy-4">
                                             <div class="col-xxl-3 col-md-6">
                                                 <div>
                                                     <label for="basiInput" class="form-label">Employee Name</label>
-                                                    <input type="text" class="form-control" id="basiInput">
+                                                    <input type="text" class="form-control" placeholder="Enter a Employee Name" name="employeename">
                                                 </div>
                                             </div>
                                             <!--end col-->
                                             <div class="col-xxl-3 col-md-6">
                                                 <div>
                                                     <label for="labelInput" class="form-label">Phone Number</label>
-                                                    <input type="text" class="form-control" id="labelInput">
+                                                    <input type="text" class="form-control" placeholder="Enter a Phone Number" name="phoneno">
                                                 </div>
                                             </div>
                                             <!--end col-->
                                             <div class="col-xxl-3 col-md-6">
                                                 <div>
                                                     <label for="placeholderInput" class="form-label">Email ID</label>
-                                                    <input type="text" class="form-control" id="placeholderInput" placeholder="Placeholder">
+                                                    <input type="email" class="form-control"  placeholder="Enter a Mail ID" name="email">
                                                 </div>
                                             </div>
                                             <!--end col-->
                                             <div class="col-xxl-3 col-md-6">
                                                 <div>
                                                     <label for="placeholderInput" class="form-label">Offical Email ID</label>
-                                                    <input type="text" class="form-control" id="placeholderInput" placeholder="Placeholder">
+                                                    <input type="email" class="form-control"  placeholder="Enter a Offical Email ID" name="officalemail">
                                                 </div>
                                             </div>
                                             <div class="col-xxl-3 col-md-6">
                                                 <div>
-                                                    <label for="placeholderInput" class="form-label">Dempartment</label>
-                                                    <select class="form-select" name="">
-                                                    <option disable> select Dempartment</option>
+                                                    <label for="placeholderInput" class="form-label">Department</label>
+                                                    <select class="form-select" name="department">
+                                                    <option disable> select Department</option>
+                                                    {% for dep in department  %}
+                                                        <option value="{{de.designation}}">{{dep.department}}</option>
+                                                    {% endfor %}
                                                     </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-xxl-3 col-md-6">
+                                                <div>
+                                                    <label for="placeholderInput" class="form-label">Designation</label>
+                                                    <select class="form-select" name="designation">
+                                                    <option disable> select Designation</option>
+                                                    {% for de in designation  %}
+                                                        <option value="{{de.designation}}">{{de.designation}}</option>
+                                                    {% endfor %}
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-xxl-3 col-md-6">
+                                                <div>
+                                                    <label for="placeholderInput" class="form-label">Tier</label>
+                                                    <select class="form-select" name="tier">
+                                                    <option disable> select Tier</option>
+                                                    {% for t in tier  %}
+                                                        <option value="{{t.tier}}">{{t.tier}}</option>
+                                                    {% endfor %}
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-xxl-3 col-md-6">
+                                                <div>
+                                                    <label for="placeholderInput" class="form-label">Password </label>
+                                                    <input type="password" class="form-control"  placeholder="Enter a Password" name="password">
                                                 </div>
                                             </div>
                                             
                                         </div>
+                                        <br>
+                                        <button type="Submit" class="btn btn-primary" >Submit</button>
                                         <!--end row-->
                                     </div>
-                                    
+                                    </form>
                                 </div>
                             </div>
                             <!--end col-->

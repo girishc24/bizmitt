@@ -9,5 +9,7 @@ urlpatterns = [
     path('<str:company_name>/addemployee/', views.addemployee, name='addemployee'),
     path('<str:company_name>/employee/', views.employee, name='employee'),
     path('<str:company_name>/department/', views.department, name='department'),
+    path('<str:company_name>/designation/', views.designation, name='designation'),
+    path('<str:company_name>/tier/', views.tier, name='tier'),
     
 ]

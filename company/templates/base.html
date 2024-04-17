@@ -56,7 +56,12 @@
                 <li class="nav-item">
                     <a href="{% url 'department' company_name=company.business %}" class="nav-link menu-link"> <i class="ph-envelope"></i> <span data-key="t-email">Departments </span> </a>
                 </li>
-                
+                <li class="nav-item">
+                    <a href="{% url 'designation' company_name=company.business %}" class="nav-link menu-link"> <i class="ph-envelope"></i> <span data-key="t-email">Designation </span> </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'tier' company_name=company.business %}" class="nav-link menu-link"> <i class="ph-envelope"></i> <span data-key="t-email">Tier </span> </a>
+                </li>
 
                 <li class="nav-item">
                     <a href="reimbursementhistory.html" class="nav-link menu-link"> <i class="ph-folder-open"></i> <span data-key="t-file-manager"> Reimbursement History</span> </a>

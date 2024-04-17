@@ -50,11 +50,12 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0">Department</h4>
+                                <h4 class="mb-sm-0">Employee</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
-                                        <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#myModal">Add a Department</button>
+                                        
+                                         <a href="{% url 'addemployee' company_name=company.business %}" class="btn btn-primary"> <span data-key="t-email">Add Employee </span> </a>
                                     </ol>
                                 </div>
 
@@ -82,43 +83,14 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {% for x in department %}
+                                            {% for x in employee %}
                                                 <tr>
                                                     <td>{{forloop.counter}}</td>
-                                                    <td>{{x.department}}</td>
+                                                    <td>{{x.employeename}}</td>
                                                     <td> <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#myModal">Add a Department</button></td>
                                                 </tr>
 
-<div id="myModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                                                <div class="modal-dialog">
-            <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="myModalLabel">Modal Heading</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
-                    </div>
-                    <div class="modal-body">
-                <form method="POST" action="{% url 'department' company_name=company.business %}">
-                {% csrf_token %}
-                    <div class="row g-3">
-                        <div class="col-xxl-12">
-                            <div>
-                                <label for="firstName" class="form-label">Department Name</label>
-                                <input type="text" class="form-control"  name="department" placeholder="Enter a Department" required="">
-                            </div>
-                        </div><!--end col-->
-                        
-                        
-                    </div><!--end row-->
-                
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                        <button type="Submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div>
+
                                             {% endfor %}
                                             
                                         </tbody>
