@@ -67,7 +67,13 @@ def addemployee(request, company_name):
     
 @group_required('COMPANY')
 def employee(request, company_name):
-    pass
+    if request.user.is_authenticated:
+        company = Company.objects.get(user=request.user)
+        department = Department.objects.filter(cno=company)
+        context = {"company": company, "department":department}
+        return render(request, 'department.html', context)
+    else:
+        return redirect('companylogin')
     
 @group_required('COMPANY')   
 def department(request, company_name):

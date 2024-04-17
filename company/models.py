@@ -24,3 +24,16 @@ class Company(models.Model):
 class Department(models.Model):
     cno = models.ForeignKey(Company, on_delete=models.CASCADE, related_name="company")
     department = models.CharField(max_length=200, unique=True, null = False)
+
+class Designation(models.Model):
+    cno = models.ForeignKey(Company, on_delete=models.CASCADE, related_name="companyname")
+    designation = models.CharField(max_length=200, unique=True, null = False)
+
+class Employee(models.Model):
+    user =models.OneToOneField(User, on_delete=models.CASCADE)
+    employeename  = models.CharField(max_length=200)
+    phoneno = models.CharField(max_length=10, unique=True, null=False)
+    email = models.CharField(max_length=200, unique=True, null=False)
+    officalemail = models.CharField(max_length=200, unique=True)
+    department = models.OneToOneField(Department, on_delete=models.PROTECT)
+    designation = models.OneToOneField(Designation, on_delete=models.PROTECT)
