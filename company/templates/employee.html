@@ -70,7 +70,7 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5 class="card-title mb-0">Department Details</h5>
+                                    <h5 class="card-title mb-0">Employee Details</h5>
                                 </div>
                                 <div class="card-body">
                                     <table id="example" class="table table-bordered dt-responsive nowrap table-striped align-middle" style="width:100%">
@@ -78,8 +78,13 @@
                                             <tr>
                                                 
                                                 <th data-ordering="false">SR No.</th>
-                                                <th data-ordering="false">ID</th>
-                                                <th data-ordering="false">Action</th>
+                                                <th data-ordering="false">Name</th>
+                                                <th data-ordering="false">Phone No</th>
+                                                <th data-ordering="false">Email </th>
+                                                <th data-ordering="false">Offical Mail </th>
+                                                <th data-ordering="false">Department</th>
+                                                <th data-ordering="false">Designation</th>
+                                                <th data-ordering="false">Tier</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -87,7 +92,12 @@
                                                 <tr>
                                                     <td>{{forloop.counter}}</td>
                                                     <td>{{x.employeename}}</td>
-                                                    <td> <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#myModal">Add a Department</button></td>
+                                                    <td>{{x.phoneno}}</td>
+                                                    <td>{{x.email}}</td>
+                                                    <td>{{x.officalemail}}</td>
+                                                    <td>{{x.department.department}}</td>
+                                                    <td>{{x.designation.designation}}</td>
+                                                    <td>{{x.tier}}</td>
                                                 </tr>
 
 
@@ -109,42 +119,7 @@
             </div>
             
 
-    <div id="myModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="myModalLabel">Modal Heading</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
-                    </div>
-                    <div class="modal-body">
-                <form method="POST" action="{% url 'department' company_name=company.business %}">
-                {% csrf_token %}
-                    <div class="row g-3">
-                        <div class="col-xxl-12">
-                            <div>
-                                <label for="firstName" class="form-label">Department Name</label>
-                                <input type="text" class="form-control"  name="department" placeholder="Enter a Department" required="">
-                            </div>
-                        </div><!--end col-->
-                        
-                        
-                    </div><!--end row-->
-                
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                        <button type="Submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div>
-
-            
-        </div>
-        <!-- end main content-->
-
-    </div>
+    
     {% include 'footer.html'%}
     <button class="btn btn-dark btn-icon" id="back-to-top">
         <i class="bi bi-caret-up fs-3xl"></i>

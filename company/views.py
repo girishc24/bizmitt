@@ -66,14 +66,17 @@ def addemployee(request, company_name):
             email_new=request.POST["email"]
             officalemail=request.POST["officalemail"]
             department_new=request.POST["department"]
+            department_instance = Department.objects.get(id=department_new)
             designation_new=request.POST["designation"]
+            designation_instance = Designation.objects.get(id=designation_new)
             tier_new=request.POST["tier"]
+            tier_instance = Tier.objects.get(id=tier_new)
             password=request.POST["password"]
             user = User.objects.create_user(username=phoneno_new, email=officalemail, password=password)
             company_group = Group.objects.get(name='EMPLOYEE')
             user.groups.add(company_group)
-            company = Employee.objects.create(user=user, cno=company, employeename=employeename, phoneno=phoneno_new, email=email_new, officalemail=officalemail, department=department_new, designation=designation_new, tier=tier_new, password=password)
-            return redirect('employee')
+            company = Employee.objects.create(user=user, cno=company, employeename=employeename, phoneno=phoneno_new, email=email_new, officalemail=officalemail, department=department_instance, designation=designation_instance, tier=tier_instance, password=password)
+            return redirect(f'/{company.business}/employee/')
         else:
             department = Department.objects.filter(cno=company)
             designation = Designation.objects.filter(cno=company)
@@ -88,7 +91,6 @@ def employee(request, company_name):
     if request.user.is_authenticated:
         company = Company.objects.get(user=request.user)
         employee = Employee.objects.filter(cno=company)
-        
         context = {"company": company, "employee":employee}
         return render(request, 'employee.html', context)
     else:
