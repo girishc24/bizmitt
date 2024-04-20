@@ -61,7 +61,7 @@
                                     <div class="card-header">
                                         <h4 class="card-title mb-0">Input Example</h4>
                                     </div><!-- end card header -->
-                                    <form method="POST" action="{% url 'addemployee' company_name=company.business %}">
+                                    <form method="POST" action="{% url 'addemployee' company_name=company %}">
                                     {% csrf_token %}
                                         <div class="card-body">
                                             <div class="row gy-4">

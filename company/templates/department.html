@@ -89,36 +89,41 @@
                                                     <td> <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#myModal{{forloop.counter}}">Edit</button></td>
                                                 </tr>
 
-<div id="myModal{{forloop.counter}}" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                                                <div class="modal-dialog">
-            <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="myModalLabel">Modal Heading</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
-                    </div>
-                    <div class="modal-body">
-                <form method="POST" action="{% url 'department' company_name=company.business %}">
-                {% csrf_token %}
-                    <div class="row g-3">
-                        <div class="col-xxl-12">
-                            <div>
-                                <label for="firstName" class="form-label">Department Name</label>
-                                <input type="text" class="form-control"  name="department" placeholder="Enter a Department" required="" value="{{ x.department }}">
-                            </div>
-                        </div><!--end col-->
-                        
-                        
-                    </div><!--end row-->
-                
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                        <button type="Submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div>
+                                            <div id="myModal{{forloop.counter}}" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                                                                        <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="myModalLabel">Edit Department</h5>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                        <form method="POST" action="{% url 'editdepartment' company_name=company %}">
+                                                        {% csrf_token %}
+                                                            <div class="row g-3">
+                                                                <div class="col-xxl-12">
+                                                                    <div>
+                                                                        <label for="firstName" class="form-label">Department Name</label>
+                                                                        <input type="text" class="form-control"  name="department" placeholder="Enter a Department" required="" value="{{ x.department }}">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xxl-12">
+                                                                    <div>
+                                                                      
+                                                                        <input type="hidden" class="form-control"  name="dno"  required="" value="{{ x.id }}">
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                            </div><!--end row-->
+                                                        
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                                                                <button type="Submit" class="btn btn-primary">Submit</button>
+                                                            </div>
+                                                        </form>
+                                                        </div><!-- /.modal-content -->
+                                                    </div><!-- /.modal-dialog -->
+                                            </div>
                                             {% endfor %}
                                             
                                         </tbody>
@@ -145,7 +150,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
                     </div>
                     <div class="modal-body">
-                <form method="POST" action="{% url 'department' company_name=company.business %}">
+                <form method="POST" action="{% url 'department' company_name=company %}">
                 {% csrf_token %}
                     <div class="row g-3">
                         <div class="col-xxl-12">

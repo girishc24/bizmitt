@@ -1,8 +1,6 @@
 <!doctype html>
 <html lang="en" data-layout="vertical" data-sidebar="dark" data-sidebar-size="lg" data-preloader="disable" data-theme="default" data-topbar="light" data-bs-theme="light">
 
-
-    
 {% load static %}
 <head>
 
@@ -113,7 +111,7 @@
                                                 <p class="text-muted">Sign in to continue to BizmITT.</p>
                                             </div>
                                             <div class="p-2 mt-5">
-                                                <form method="POST" action="{% url 'companylogin' %}">
+                                                <form method="POST" action="{% url 'employeesign' %}">
                                                     {% csrf_token %}
                                                     <div class="mb-3">
                                                         <label for="username" class="form-label">Phone Number <span class="text-danger">*</span></label>
@@ -168,8 +166,6 @@
         <script src="{% static 'libs/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
         <script src="{% static 'libs/simplebar/simplebar.min.js' %}"></script>
         <script src="{% static 'js/plugins.js' %}"></script>
-        
-
         
         <script src="{% static 'js/pages/password-addon.init.js' %}"></script>
         

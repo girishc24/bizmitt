@@ -6,7 +6,7 @@ class Company(models.Model):
     user =models.OneToOneField(User, on_delete=models.CASCADE)
     business= models.CharField(max_length=200, unique=True, null = False)
     email = models.CharField(max_length=200, unique=True, null = False)
-    phoneno = models.CharField(max_length=12, unique=True, null = False)
+    gstno = models.CharField(max_length=12, unique=True, null = False)
     created_at = models.DateTimeField(auto_now_add=True)
     password = models.CharField(max_length=50)
 
@@ -25,9 +25,16 @@ class Department(models.Model):
     cno = models.ForeignKey(Company, on_delete=models.CASCADE, related_name="company")
     department = models.CharField(max_length=200, unique=True, null = False)
 
+    def __str__(self) -> str:
+        return (f"{self.department}")
+
 class Designation(models.Model):
     cno = models.ForeignKey(Company, on_delete=models.CASCADE, related_name="companyname")
+    dno = models.ForeignKey(Department, on_delete=models.CASCADE )
     designation = models.CharField(max_length=200, unique=True, null = False)
+
+    def __str__(self) -> str:
+        return (f"{self.designation}")
 
 class Tier(models.Model):
     cno = models.ForeignKey(Company, on_delete=models.CASCADE, related_name="companytier")

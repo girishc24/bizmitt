@@ -97,13 +97,17 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
                     </div>
                     <div class="modal-body">
-                <form method="POST" action="{% url 'designation' company_name=company.business %}">
+                <form method="POST" action="{% url 'edittier' company_name=company %}">
                 {% csrf_token %}
                     <div class="row g-3">
                         <div class="col-xxl-12">
                             <div>
-                                <label for="firstName" class="form-label">Designation Name</label>
-                                <input type="text" class="form-control"  name="tier" placeholder="Enter a Tier" required="" value="{{ x.designation }}">
+                                <label for="firstName" class="form-label">Tier Name</label>
+                                <input type="text" class="form-control"  name="tier" placeholder="Enter a Tier" required="" value="{{ x.tier }}">
+                            </div>
+                            <div>
+                                
+                                <input type="hidden" class="form-control"  name="tno" required="" value="{{ x.id }}">
                             </div>
                         </div><!--end col-->
                         
@@ -145,7 +149,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
                     </div>
                     <div class="modal-body">
-                <form method="POST" action="{% url 'tier' company_name=company.business %}">
+                <form method="POST" action="{% url 'tier' company_name=company %}">
                 {% csrf_token %}
                     <div class="row g-3">
                         <div class="col-xxl-12">
