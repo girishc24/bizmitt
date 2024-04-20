@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, Group
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
-from . models import Company, Department, Designation, Employee, Tier
+from . models import Company, Department, Designation, Employee, Tier, Reimbursementlist
 from django.contrib import messages
 from . decorators import group_required
 
@@ -151,6 +151,22 @@ def tier(request, company_name):
             tier = Tier.objects.filter(cno=company)
             context = {"company": company, "tier":tier}
             return render(request, 'tier.html', context)
+    else:
+        return redirect('companylogin')
+    
+@group_required('COMPANY')   
+def reimbursementlist(request, company_name):
+    if request.user.is_authenticated:
+        company = Company.objects.get(user=request.user)
+        if request.method == "POST":
+            #cno = request.POST['cno']
+            name = request.POST['name']
+            tier = Reimbursementlist.objects.create(cno=company, list=name)
+            return redirect(f'/{company.business}/reimbursementlist/')
+        else:
+            reimbursement = Reimbursementlist.objects.filter(cno=company)
+            context = {"company": company, "reimbursement":reimbursement}
+            return render(request, 'reimbursementlist.html', context)
     else:
         return redirect('companylogin')
     

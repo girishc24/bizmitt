@@ -11,5 +11,6 @@ urlpatterns = [
     path('<str:company_name>/department/', views.department, name='department'),
     path('<str:company_name>/designation/', views.designation, name='designation'),
     path('<str:company_name>/tier/', views.tier, name='tier'),
+    path('<str:company_name>/reimbursementlist/', views.reimbursementlist, name='reimbursementlist'),
     
 ]

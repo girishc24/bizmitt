@@ -36,6 +36,12 @@ class Tier(models.Model):
     def __str__(self) -> str:
         return (f"{self.tier}")
     
+class Reimbursementlist(models.Model):
+    cno = models.ForeignKey(Company, on_delete=models.CASCADE, related_name="reimbursementcno")
+    list = models.CharField(max_length=200, unique=True, null = False)
+
+    def __str__(self) -> str:
+        return (f"{self.list}")    
    
 
 class Employee(models.Model):
